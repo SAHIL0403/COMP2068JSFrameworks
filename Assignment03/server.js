@@ -1,5 +1,6 @@
-const connect = require('connect');
-const url = require('url');
+// Import required modules
+const connect = require('connect'); // Importing the Connect module for creating the server
+const url = require('url'); // Importing the URL module to parse URL parameters
 
 const app = connect();
 
