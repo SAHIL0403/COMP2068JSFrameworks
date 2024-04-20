@@ -1,0 +1,41 @@
+<div>
+   
+    <button (click)="showCreateForm()" class="btn btn-success mb-3">Create New Student</button>
+  
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>
+           
+            <button (click)="showUpdateForm(student)" class="btn btn-primary btn-sm">Update</button>
+            
+            <button (click)="deleteStudent(student.id)" class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+   
+    <div *ngIf="showForm">
+      <h2>{{ isEditMode ? 'Update Student' : 'Create Student' }}</h2>
+      <form (submit)="submitForm()">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="formData.name" required>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Create' }}</button>
+        <button type="button" (click)="cancelForm()" class="btn btn-secondary">Cancel</button>
+      </form>
+    </div>
+  </div>
+  
